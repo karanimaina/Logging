@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  loans-discovery-server:
+     build: .
+     hostname: discovery-server
+     container_name: loans-discovery-server
+     ports:
+       - '9713:9713'
+     volumes:
+      - ./discoveryLogs:/app/logs
+     restart: always
+     deploy:
+       resources:
+         limits:
+           memory: 256m

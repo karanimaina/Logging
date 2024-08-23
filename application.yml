@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: ESB-LOGGING-ENGINE
+log-transfer:
+  directories:
+   - "/Users/fkarani/Desktop/Files/: /home/fkarani/esb-logs/"
+target:
+  username: fkarani
+  targetPort: 22
+  targetIp: 10.20.2.50
+  password: Pass@word1!
+server:
+  port: 0010
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9713/eureka/
+    instance:
+        preferIpAddress: true
+    registerWithEureka: true
+    fetchRegistry: true
+
+logging:
+  file:
+    name: ./logs/${spring.application.name}.log

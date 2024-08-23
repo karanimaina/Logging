@@ -1,0 +1,66 @@
+2024-06-12 10:10:30.418  INFO 32896 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-06-12 10:10:30.497  INFO 32896 --- [scheduling-1] c.e.l.service.LogTransferTask2           : relativePath: esb-json-xml\json-xml-service.log.2024-03-13.0.gz
+2024-06-12 10:10:30.620  INFO 32896 --- [scheduling-1] c.e.l.service.LogTransferTask2           : targetDirPath: \home\fkarani\esb-logs\esb-json-xml
+2024-06-12 10:10:30.626  INFO 32896 --- [scheduling-1] c.e.l.service.LogTransferTask2           : targetFilePath: \home\fkarani\esb-logs\esb-json-xml\json-xml-service.log.2024-03-13.0.gz
+2024-06-12 10:10:30.755 ERROR 32896 --- [scheduling-1] c.e.l.service.LogTransferTask2           : Failed to change directory: //home/fkarani/esb-logs/esb-json-xml
+
+com.jcraft.jsch.SftpException: 
+	at com.jcraft.jsch.ChannelSftp.cd(ChannelSftp.java:359) ~[jsch-0.1.55.jar:na]
+	at com.eclectics.logtransfer.service.LogTransferTask2.createDirectories(LogTransferTask2.java:144) ~[classes/:na]
+	at com.eclectics.logtransfer.service.LogTransferTask2.transferLogs(LogTransferTask2.java:91) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) ~[spring-context-5.3.26.jar:5.3.26]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.io.IOException: Pipe closed
+	at java.base/java.io.PipedInputStream.read(PipedInputStream.java:307) ~[na:na]
+	at com.jcraft.jsch.Channel$MyPipedInputStream.updateReadSide(Channel.java:362) ~[jsch-0.1.55.jar:na]
+	at com.jcraft.jsch.ChannelSftp.cd(ChannelSftp.java:337) ~[jsch-0.1.55.jar:na]
+	... 16 common frames omitted
+
+2024-06-12 10:10:30.773 ERROR 32896 --- [scheduling-1] c.e.l.service.LogTransferTask2           : SFTP error during file transfer: 
+
+com.jcraft.jsch.SftpException: 
+	at com.jcraft.jsch.ChannelSftp.cd(ChannelSftp.java:359) ~[jsch-0.1.55.jar:na]
+	at com.eclectics.logtransfer.service.LogTransferTask2.createDirectories(LogTransferTask2.java:144) ~[classes/:na]
+	at com.eclectics.logtransfer.service.LogTransferTask2.transferLogs(LogTransferTask2.java:91) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.26.jar:5.3.26]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) ~[spring-context-5.3.26.jar:5.3.26]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.io.IOException: Pipe closed
+	at java.base/java.io.PipedInputStream.read(PipedInputStream.java:307) ~[na:na]
+	at com.jcraft.jsch.Channel$MyPipedInputStream.updateReadSide(Channel.java:362) ~[jsch-0.1.55.jar:na]
+	at com.jcraft.jsch.ChannelSftp.cd(ChannelSftp.java:337) ~[jsch-0.1.55.jar:na]
+	... 16 common frames omitted
+
+2024-06-12 10:10:30.794  INFO 32896 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application ESB-LOGGING-ENGINE with eureka with status DOWN
+2024-06-12 10:10:30.796  INFO 32896 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1718176230796, current=DOWN, previous=UP]
+2024-06-12 10:10:30.797  INFO 32896 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ESB-LOGGING-ENGINE/fkarani-pc.hq.ekenya.co.ke:ESB-LOGGING-ENGINE:8: registering service...
+2024-06-12 10:10:31.066  INFO 32896 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-06-12 10:10:31.162  INFO 32896 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ESB-LOGGING-ENGINE/fkarani-pc.hq.ekenya.co.ke:ESB-LOGGING-ENGINE:8 - registration status: 204
+2024-06-12 10:10:31.166  WARN 32896 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor shutting down, can't accept the task
+2024-06-12 10:10:31.166  WARN 32896 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor shutting down, can't accept the task
+2024-06-12 10:10:31.169  INFO 32896 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-06-12 10:10:31.189  INFO 32896 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ESB-LOGGING-ENGINE/fkarani-pc.hq.ekenya.co.ke:ESB-LOGGING-ENGINE:8 - deregister  status: 200
+2024-06-12 10:10:31.240  INFO 32896 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
